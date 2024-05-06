@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main id="app">
+
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Instrument</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="member in members">
+          <td>{{member.fname}}</td>
+          <td>{{member.lname}}</td>
+          <td>{{member.instrument}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="add-more">
+      <p>Add Band Mebers</p>
+      <form>
+        <label for="fname"> First name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="Digite o seu primeiro nome"
+          v-model="newMember.fname"><br>
+        <label for="lname"> Last name:</label><br>
+
+        <input type="text" id="lname" name="lname" placeholder="Digite ultimo nome" v-model="newMember.lname"><br>
+
+        <label for="instrument">Instrument:</label><br>
+        <select name="instrument" id="instrument" v-model="newMember.instrument">
+          <option value="Bass">Bass</option>
+          <option value="Eletric Guitar">Eletric Guitar</option>
+          <option value="Acoustic guitar">Acoustic guitar</option>
+          <option value="Drums">Drums</option>
+        </select>
+        <br><br>
+        <input type="button" value="Add" @click="addMember()">
+      </form>
+    </section>
+
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
